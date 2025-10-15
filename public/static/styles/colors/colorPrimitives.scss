@@ -1,0 +1,160 @@
+/* _sgnl-colors-primitives - Default */
+:root {
+  --base-b-white: rgba(255, 255, 255, 1);
+  --base-b-black: rgba(10, 14, 21, 1);
+  --base-purple: rgba(151, 71, 255, 1);
+  --base-lila: rgba(188, 181, 241, 1);
+  --opacity-black-b-black_8: rgba(10, 14, 21, 0.07999999821186066);
+  --neutral-b-gray-25: rgba(244, 245, 245, 1);
+  --neutral-b-gray-50: rgba(237, 237, 238, 1);
+  --neutral-b-gray-100: rgba(217, 218, 220, 1);
+  --neutral-b-gray-200: rgba(196, 198, 201, 1);
+  --neutral-b-gray-300: rgba(186, 188, 194, 1);
+  --neutral-b-gray-400: rgba(143, 147, 155, 1);
+  --neutral-b-gray-500-base: rgba(108, 114, 126, 1);
+  --neutral-b-gray-600: rgba(99, 104, 115, 1);
+  --neutral-b-gray-700: rgba(88, 93, 103, 1);
+  --neutral-b-gray-800: rgba(76, 81, 89, 1);
+  --neutral-b-gray-900: rgba(62, 66, 73, 1);
+  --neutral-b-gray-950: rgba(28, 36, 48, 1);
+  --primary-sgnl-green-25: rgba(242, 245, 242, 1);
+  --primary-sgnl-green-50: rgba(234, 238, 234, 1);
+  --primary-sgnl-green-100: rgba(210, 220, 210, 1);
+  --primary-sgnl-green-200: rgba(183, 201, 183, 1);
+  --primary-sgnl-green-300: rgba(163, 189, 162, 1);
+  --primary-sgnl-green-400: rgba(113, 154, 111, 1);
+  --primary-sgnl-green-500-base: rgba(48, 125, 43, 1);
+  --primary-sgnl-green-600: rgba(44, 114, 39, 1);
+  --primary-sgnl-green-700: rgba(39, 102, 35, 1);
+  --primary-sgnl-green-800: rgba(34, 88, 30, 1);
+  --primary-sgnl-green-900: rgba(28, 72, 25, 1);
+  --accent-ac-purple-25: rgba(243, 242, 252, 1);
+  --accent-ac-purple-50: rgba(235, 233, 250, 1);
+  --accent-ac-purple-100: rgba(213, 208, 246, 1);
+  --accent-ac-purple-200: rgba(188, 181, 241, 1);
+  --accent-ac-purple-300: rgba(153, 139, 235, 1);
+  --accent-ac-purple-400: rgba(125, 105, 231, 1);
+  --accent-ac-purple-500-base: rgba(77, 18, 226, 1);
+  --accent-ac-purple-600: rgba(70, 16, 206, 1);
+  --accent-ac-purple-700: rgba(63, 15, 184, 1);
+  --accent-ac-purple-800: rgba(54, 13, 160, 1);
+  --accent-ac-purple-900: rgba(45, 10, 131, 1);
+  --blue-s-info-25: rgba(242, 246, 255, 1);
+  --blue-s-info-50: rgba(234, 240, 254, 1);
+  --blue-s-info-100: rgba(210, 224, 253, 1);
+  --blue-s-info-200: rgba(176, 203, 252, 1);
+  --blue-s-info-300: rgba(139, 181, 251, 1);
+  --blue-s-info-400: rgba(77, 153, 250, 1);
+  --blue-s-info-500-base: rgba(44, 137, 237, 1);
+  --green-s-success-25: rgba(242, 249, 244, 1);
+  --blue-s-info-600: rgba(41, 127, 221, 1);
+  --blue-s-info-700: rgba(38, 118, 204, 1);
+  --blue-s-info-800: rgba(33, 102, 177, 1);
+  --blue-s-info-900: rgba(27, 83, 144, 1);
+  --green-s-success-50: rgba(233, 244, 237, 1);
+  --green-s-success-100: rgba(208, 233, 217, 1);
+  --green-s-success-200: rgba(181, 222, 195, 1);
+  --green-s-success-300: rgba(148, 209, 170, 1);
+  --green-s-success-400: rgba(99, 199, 139, 1);
+  --green-s-success-500-base: rgba(17, 173, 100, 1);
+  --green-s-success-600: rgba(16, 161, 93, 1);
+  --green-s-success-700: rgba(15, 149, 86, 1);
+  --green-s-success-800: rgba(13, 129, 74, 1);
+  --green-s-success-900: rgba(10, 105, 61, 1);
+  --orange-s-warning-25: rgba(255, 246, 242, 1);
+  --orange-s-warning-50: rgba(255, 240, 233, 1);
+  --orange-s-warning-100: rgba(255, 224, 208, 1);
+  --orange-s-warning-200: rgba(255, 207, 180, 1);
+  --orange-s-warning-300: rgba(255, 188, 147, 1);
+  --orange-s-warning-400: rgba(255, 168, 104, 1);
+  --orange-s-warning-500-base: rgba(255, 152, 46, 1);
+  --orange-s-warning-600: rgba(224, 127, 1, 1);
+  --orange-s-warning-700: rgba(208, 118, 1, 1);
+  --orange-s-warning-800: rgba(180, 102, 1, 1);
+  --orange-s-warning-900: rgba(147, 83, 1, 1);
+  --red-s-error-25: rgba(254, 243, 243, 1);
+  --red-s-error-50: rgba(253, 235, 234, 1);
+  --red-s-error-100: rgba(250, 212, 211, 1);
+  --red-s-error-200: rgba(248, 187, 184, 1);
+  --red-s-error-300: rgba(245, 157, 154, 1);
+  --red-s-error-400: rgba(242, 109, 102, 1);
+  --red-s-error-500-base: rgba(240, 68, 55, 1);
+  --red-s-error-600: rgba(219, 62, 50, 1);
+  --red-s-error-700: rgba(196, 55, 45, 1);
+  --red-s-error-800: rgba(170, 48, 39, 1);
+  --red-s-error-900: rgba(139, 39, 32, 1);
+  --opacity-black-b-black_10: rgba(10, 14, 21, 0.10000000149011612);
+  --opacity-black-b-black_12: rgba(10, 14, 21, 0.11999999731779099);
+  --opacity-black-b-black_16: rgba(10, 14, 21, 0.1599999964237213);
+  --opacity-black-b-black_20: rgba(10, 14, 21, 0.20000000298023224);
+  --opacity-black-b-black_50: rgba(10, 14, 21, 0.5);
+  --opacity-black-b-black_80: rgba(10, 14, 21, 0.800000011920929);
+  --data-visualization-purple-50: rgba(165, 110, 255, 1);
+  --data-visualization-purple-70: rgba(105, 41, 196, 1);
+  --data-visualization-cyan-50: rgba(17, 146, 232, 1);
+  --data-visualization-cyan-90: rgba(1, 39, 73, 1);
+  --data-visualization-teal-50: rgba(0, 157, 154, 1);
+  --data-visualization-teal-70: rgba(0, 93, 93, 1);
+  --data-visualization-red-50: rgba(250, 77, 86, 1);
+  --data-visualization-red-90: rgba(87, 4, 8, 1);
+  --data-visualization-magenta-50: rgba(238, 83, 139, 1);
+  --data-visualization-magenta-70: rgba(159, 24, 83, 1);
+  --data-visualization-green-60: rgba(25, 128, 56, 1);
+  --data-visualization-yellow-50: rgba(178, 134, 0, 1);
+  --data-visualization-orange-70: rgba(138, 56, 0, 1);
+  --data-visualization-blue-80: rgba(0, 45, 156, 1);
+  --opacity-white-b-white_8: rgba(255, 255, 255, 0.07999999821186066);
+  --opacity-white-b-white_10: rgba(255, 255, 255, 0.10000000149011612);
+  --opacity-white-b-white_12: rgba(255, 255, 255, 0.11999999731779099);
+  --opacity-white-b-white_16: rgba(255, 255, 255, 0.1599999964237213);
+  --opacity-white-b-white_20: rgba(255, 255, 255, 0.20000000298023224);
+  --opacity-white-b-white_50: rgba(255, 255, 255, 0.5);
+  --opacity-white-b-white_80: rgba(255, 255, 255, 0.800000011920929);
+}
+
+
+/* "Gray" palette (named using your neutral-b-gray variables)*/
+$neutral-b-gray-raw: (
+  25: var(--neutral-b-gray-25),
+  50: var(--neutral-b-gray-50),
+  100: var(--neutral-b-gray-100),
+  200: var(--neutral-b-gray-200),
+  300: var(--neutral-b-gray-300),
+  400: var(--neutral-b-gray-400),
+  500: var(--neutral-b-gray-500-base),
+  600: var(--neutral-b-gray-600),
+  700: var(--neutral-b-gray-700),
+  800: var(--neutral-b-gray-800),
+  900: var(--neutral-b-gray-900),
+  950: var(--neutral-b-gray-950),
+  default: var(--neutral-b-gray-500-base)
+);
+
+/* "Primary green" palette (using your primary-sgnl-green variables)*/
+$sgnl-green-tones: (
+  0:  var(--primary-sgnl-green-900),
+  10: var(--primary-sgnl-green-800),
+  20: var(--primary-sgnl-green-700),
+  30: var(--primary-sgnl-green-600),
+  40: var(--primary-sgnl-green-500-base),
+  50: var(--primary-sgnl-green-400),
+  60: var(--primary-sgnl-green-300),
+  70: var(--primary-sgnl-green-200),
+  80: var(--primary-sgnl-green-100),
+  90: var(--primary-sgnl-green-50),
+  95: var(--primary-sgnl-green-25),
+);
+
+$sgnl-primaries: (
+  --primary-sgnl-green-25: rgba(242, 245, 242, 1),
+  --primary-sgnl-green-50: rgba(234, 238, 234, 1),
+  --primary-sgnl-green-100: rgba(210, 220, 210, 1),
+  --primary-sgnl-green-200: rgba(183, 201, 183, 1),
+  --primary-sgnl-green-300: rgba(163, 189, 162, 1),
+  --primary-sgnl-green-400: rgba(113, 154, 111, 1),
+  --primary-sgnl-green-500-base: rgba(48, 125, 43, 1),
+  --primary-sgnl-green-600: rgba(44, 114, 39, 1),
+  --primary-sgnl-green-700: rgba(39, 102, 35, 1),
+  --primary-sgnl-green-800: rgba(34, 88, 30, 1),
+  --primary-sgnl-green-900: rgba(28, 72, 25, 1),
+)

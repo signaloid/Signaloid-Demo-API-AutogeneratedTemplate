@@ -1,0 +1,39 @@
+/* _EightShapes Specs - Dark */
+:root {
+  --background: var(--base-b-black);
+  --text-primary: var(--base-b-white);
+  --text-secondary: var(--neutral-b-gray-400);
+  --artwork-background: var(--neutral-b-gray-950);
+  --change-addition: var(--green-s-success-300);
+  --change-removal: var(--red-s-error-300);
+  --change-update: var(--orange-s-warning-300);
+  --artwork-stroke: var(--neutral-b-gray-950);
+  --attributes-icon-stroke: var(--neutral-b-gray-50);
+  --attributes-style-fill: var(--neutral-b-gray-900);
+  --attributes-style-stroke: var(--neutral-b-gray-800);
+  --attributes-style-text: var(--primary-sgnl-green-200);
+  --attributes-variable-stroke: var(--neutral-b-gray-800);
+  --attributes-variable-fill: var(--neutral-b-gray-900);
+  --attributes-variable-text: var(--accent-ac-purple-200);
+  --attributes-raw-value-text: var(--neutral-b-gray-300);
+  --attributes-token-fill: var(--neutral-b-gray-900);
+  --attributes-token-text: var(--primary-sgnl-green-200);
+  --attributes-dependency-fill: var(--neutral-b-gray-800);
+  --attributes-dependency-stroke: var(--neutral-b-gray-900);
+  --attributes-dependency-text: var(--accent-ac-purple-100);
+  --annotation-alignment-grid: var(--neutral-b-gray-50);
+  --annotation-direction-arrow: var(--neutral-b-gray-50);
+  --annotation-element-outline: var(--red-s-error-500-base);
+  --annotation-element-overlay: var(--red-s-error-200);
+  --annotation-item-spacing-overlay: var(--orange-s-warning-300);
+  --annotation-item-size: var(--orange-s-warning-300);
+  --annotation-item-spacing-line: var(--orange-s-warning-300);
+  --annotation-padding-overlay: var(--accent-ac-purple-300);
+  --annotation-padding-size: var(--accent-ac-purple-300);
+  --annotation-padding-line: var(--accent-ac-purple-300);
+  --annotation-marker-fill: var(--accent-ac-purple-500-base);
+  --annotation-marker-text: var(--accent-ac-purple-50);
+  --annotation-padding-pill-background: rgba(0, 125, 0, 1);
+  --annotation-gap-pill-background: rgba(197, 70, 0, 1);
+  --annotation-spacer-pill-text: rgba(255, 255, 255, 1);
+}

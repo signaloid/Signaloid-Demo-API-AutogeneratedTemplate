@@ -1,0 +1,39 @@
+/* _EightShapes Specs - Light */
+:root {
+  --background: var(--base-b-white);
+  --text-primary: var(--defaults-primary-text-primary);
+  --text-secondary: var(--neutral-b-gray-600);
+  --artwork-background: var(--defaults-secondary-background-mono);
+  --change-addition: var(--green-s-success-800);
+  --change-removal: var(--red-s-error-800);
+  --change-update: var(--orange-s-warning-800);
+  --artwork-stroke: var(--neutral-b-gray-50);
+  --attributes-icon-stroke: var(--neutral-b-gray-500-base);
+  --attributes-style-fill: var(--neutral-b-gray-50);
+  --attributes-style-stroke: var(--neutral-b-gray-300);
+  --attributes-style-text: var(--primary-sgnl-green-500-base);
+  --attributes-variable-stroke: var(--neutral-b-gray-300);
+  --attributes-variable-fill: var(--neutral-b-gray-50);
+  --attributes-variable-text: var(--accent-ac-purple-500-base);
+  --attributes-raw-value-text: var(--neutral-b-gray-500-base);
+  --attributes-token-fill: var(--neutral-b-gray-50);
+  --attributes-token-text: var(--primary-sgnl-green-500-base);
+  --attributes-dependency-fill: var(--neutral-b-gray-50);
+  --attributes-dependency-stroke: var(--neutral-b-gray-300);
+  --attributes-dependency-text: var(--accent-ac-purple-500-base);
+  --annotation-alignment-grid: var(--neutral-b-gray-500-base);
+  --annotation-direction-arrow: var(--neutral-b-gray-500-base);
+  --annotation-element-outline: var(--red-s-error-500-base);
+  --annotation-element-overlay: var(--red-s-error-200);
+  --annotation-item-spacing-overlay: var(--orange-s-warning-800);
+  --annotation-item-size: var(--orange-s-warning-800);
+  --annotation-item-spacing-line: var(--orange-s-warning-800);
+  --annotation-padding-overlay: var(--accent-ac-purple-500-base);
+  --annotation-padding-size: var(--accent-ac-purple-500-base);
+  --annotation-padding-line: var(--accent-ac-purple-500-base);
+  --annotation-marker-fill: var(--accent-ac-purple-500-base);
+  --annotation-marker-text: var(--accent-ac-purple-50);
+  --annotation-padding-pill-background: rgba(0, 125, 0, 1);
+  --annotation-gap-pill-background: rgba(197, 70, 0, 1);
+  --annotation-spacer-pill-text: rgba(255, 255, 255, 1);
+}

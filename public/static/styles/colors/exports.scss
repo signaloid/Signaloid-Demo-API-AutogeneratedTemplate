@@ -1,0 +1,4 @@
+
+@function colors($color-class) {
+  @return var($color-class);
+}

@@ -1,0 +1,128 @@
+<div class="demo-body">
+  <div
+    class="demo-container"
+    style="flex-direction: row !important"
+  >
+    @let state = state$ | async;
+    @let disabledState = state === DemoStates.FIRST_TIME_RUN || state === DemoStates.BUILDING_REPO;
+    @if (state !== DemoStates.ERROR) {
+      <div class="inputs-container">
+        @for (slider of demoSliders; track slider.id) {
+          @if (slider.type === 'distribution-slider') {
+            <lib-distribution-plot-container
+              [title]="slider.name"
+              [min]="slider.min || 0"
+              [max]="slider.max || 0"
+              [step]="slider.step || 0"
+              [initialValue]="slider.initialValue"
+              [graphHeight]="100"
+              [disabled]="disabledState"
+              [showBottomTitle]="false"
+              [initialDistribution]="slider.initialDistribution || []"
+              [xAxisLabel]="slider.xAxisLabel || ''"
+              [yAxisLabel]="'Weight'"
+              [gridSteps]="4"
+              [graphWidth]="500"
+              [adjustWidthToSlidersCount]="slider.adjustWidth || false"
+              (distributionChangeInner)="onChangingDist($event, slider.id)"
+              (sliderChangeInner)="onChangingSliderValue($event, slider.id)"
+              (switchedMode)="onSwitchedMode($event, slider.id)"
+            >
+              <div tooltip-title>Slider Widget to define the distribution</div>
+              <div tooltip-body>
+                Signaloid provides an intuitive way to define the shape of the distribution for a
+                variable. On the x-axis you can define the possible values that the variable can take.
+                On the y-axis you can define the probability that the variable will take that value. You
+                can slide the distribution left or right and it's shape will remain intact.
+              </div>
+            </lib-distribution-plot-container>
+          } @else if (slider.type === 'basic-slider') {
+            <div
+              class="slider-container container-border"
+              style="width: 100%; min-width: 500px"
+            >
+              <p>{{ slider.name }}</p>
+              <lib-slider
+                [labelBelow]="slider.xAxisLabel"
+                [alwaysShowValue]="true"
+                [disabled]="disabledState"
+                [type]="SliderTypes.NUMERIC"
+                [step]="slider.step"
+                [min]="slider.min"
+                [max]="slider.max"
+                [value]="slider.initialValue"
+                (valueUpdate)="onChangingSliderValue($event, slider.id)"
+              ></lib-slider>
+            </div>
+          } @else if (slider.type === "multiple-choice") {
+            <div
+              class="slider-container container-border"
+              style="width: 100%; min-width: 500px"
+            >
+              <div style="display: flex">
+                <p class="input-title">{{ slider.name }}</p>
+              </div>
+              <lib-multiple-choice
+                (valueUpdate)="onChangingSliderValue($event, slider.id)"
+                [disabled]="state === DemoStates.FIRST_TIME_RUN"
+                [defaultValue]="`${slider?.initialValue}`"
+                [options]="slider?.options"
+              >
+              </lib-multiple-choice>
+            </div>
+          } @else {
+            <div class="slider-container container-border" style="width: 100%">
+              <p>{{ slider.name }}</p>
+              <lib-input-text
+                style="min-width: 500px"
+                [disabled]="state === DemoStates.FIRST_TIME_RUN"
+                (valueUpdate)="onChangingSliderValue($event, slider.id)"
+                [defaultValue]="`${slider?.initialValue}`"
+              ></lib-input-text>
+
+            </div>
+          }
+
+        }
+      </div>
+    }
+
+    @if (disabledState) {
+      <div class="outputs-container">
+        <lib-figure-container
+          style="width: fit-content"
+          [loading]="true"
+          [initialLoading]="true"
+          [xAxisLabel]="'Distribution Support'"
+          [prefix]="''"
+        >
+
+        </lib-figure-container>
+      </div>
+    } @else if (state !== DemoStates.ERROR) {
+      <div class="outputs-container">
+        @if (plots && plots.length > 0) {
+          @for (plot of plots; track plot.variableID; let index = $index) {
+            @for (value of plot.values; track value) {
+              <lib-figure-container
+                style="width: fit-content"
+                [loading]="state === DemoStates.SECOND_TIME_LOADING"
+                [xAxisLabel]="'Distribution Support'"
+                [uxString]="value"
+                [prefix]="''"
+              >
+                <div figure-title>
+                  <p class="plot-title">{{ plot.variableDescription }}</p>
+                </div>
+              </lib-figure-container>
+            }
+          }
+        }
+      </div>
+    } @else {
+      <div style="display: flex; justify-content: center; align-items: center; height: 100%; width: 100%">
+        <lib-error-container-technical [showButton]="false"></lib-error-container-technical>
+      </div>
+    }
+  </div>
+</div>

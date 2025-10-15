@@ -1,0 +1,24 @@
+header {
+  background-color: var(--defaults-primary-background-primary, #fff);
+  height: 64px;
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--defaults-tertiary-border-tertiary, #d9dadc);
+}
+.header-container {
+  display: flex;
+  align-items: center;
+  .header-title {
+    color: var(--defaults-primary-text-primary, #3E4249);
+    margin: 0;
+    font-family: var(--family-display, "IBM Plex Sans");
+    font-size: var(--size-sgnl-h6, 24px);
+    font-style: normal;
+    font-weight: 600;
+    -webkit-font-smoothing: antialiased;
+    line-height: var(--line-height-sgnl-font-line-height-h6, 32px); /* 133.333% */
+    letter-spacing: var(--letter-spacing-sgnl-font-letter-spacing-055, -0.55px);
+  }
+}

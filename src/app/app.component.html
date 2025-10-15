@@ -1,0 +1,16 @@
+<header>
+  <div class="header-container">
+    <p class="header-title">
+      {{pageHeader}}
+    </p>
+    <lib-infromation-tooltip position="bottom">
+      <ng-content tooltip-title >
+        {{pageHeader}}
+      </ng-content>
+      <ng-content tooltip-body>
+        {{pageDescription}}
+      </ng-content>
+    </lib-infromation-tooltip>
+  </div>
+</header>
+<router-outlet></router-outlet>

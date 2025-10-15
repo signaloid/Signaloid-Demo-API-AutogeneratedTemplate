@@ -1,0 +1,41 @@
+/* _Specs Layout - Default */
+:root {
+  --specs-itemspacing: 128px;
+  --spec-itemspacing: 0px;
+  --title-itemspacing: 48px;
+  --title-padding: 96px;
+  --section-itemspacing: 64px;
+  --section-padding: 96px;
+  --subsection-itemspacing: 40px;
+  --subsection-title-itemspacing: 16px;
+  --subsection-exhibits-itemspacing: 40px;
+  --table-itemspacing: 16px;
+  --table-column-header-itemspacing: 32px;
+  --table-row-itemspacing: 32px;
+  --element-horizontal-itemspacing: 32px;
+  --element-vertical-itemspacing: 8px;
+  --element-anatomy-paddingleft: 28px;
+  --element-name-itemspacing: 6px;
+  --attribute-horizontal-itemspacing: 0px;
+  --attribute-vertical-itemspacing: 4px;
+  --attribute-layer-itemspacing: 4px;
+  --attribute-layer-paddingvertical: 4px;
+  --attribute-style-paddinghorizontal: 9px;
+  --attribute-style-itemspacing: 6px;
+  --attribute-variable-paddinghorizontal: 6px;
+  --attribute-variable-paddingvertical: 3.5px;
+  --attribute-variable-itemspacing: 4px;
+  --attribute-variable-color-paddingleft: 4px;
+  --attribute-token-studio-itemspacing: 6px;
+  --attribute-token-studio-paddingleft: 6px;
+  --attribute-token-studio-paddingright: 8px;
+  --option-itemspacing: 8px;
+  --option-label-itemspacing: 4px;
+  --exhibit-anatomy-itemspacing: 40px;
+  --exhibit-horizontal-itemspacing: 64px;
+  --exhibit-vertical-paddingbottom: 40px;
+  --exhibit-vertical-itemspacing: 16px;
+  --exhibit-vertical-table-itemspacing: 32px;
+  --exhibit-content-itemspacing: 24px;
+  --resources-itemspacing: 0px;
+}

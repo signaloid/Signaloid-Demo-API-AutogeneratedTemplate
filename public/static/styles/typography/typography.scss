@@ -1,0 +1,143 @@
+/* Global Base Styles */
+body,
+p,
+a,
+li,
+dt,
+dd,
+blockquote,
+pre,
+code,
+span {
+  font-family: var(--family-text, 'IBM Plex Sans'), sans-serif;
+  font-size: var(--size-sgnl-paragraph-m, 16px);
+  line-height: var(--line-height-sgnl-font-line-height-paragraph-m, 20px);
+  margin: 0;
+  padding: 0;
+}
+
+/* Headings */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--family-display, 'IBM Plex Sans'), sans-serif;
+  font-weight: var(--weight-default-sgnl-font-weight-semibold, 600);
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: var(--size-sgnl-h1, 64px);
+  line-height: var(--line-height-sgnl-font-line-height-h1, 72px);
+  margin-bottom: var(--paragraph-spacing-sgnl-font-paragraph-spacing-h1, 64px);
+}
+
+h2 {
+  font-size: var(--size-sgnl-h2, 56px);
+  line-height: var(--line-height-sgnl-font-line-height-h2, 64px);
+  margin-bottom: var(--paragraph-spacing-sgnl-font-paragraph-spacing-h2, 56px);
+}
+
+h3 {
+  font-size: var(--size-sgnl-h3, 48px);
+  line-height: var(--line-height-sgnl-font-line-height-h3, 56px);
+  margin-bottom: var(--paragraph-spacing-sgnl-font-paragraph-spacing-h3, 48px);
+}
+
+h4 {
+  font-size: var(--size-sgnl-h4, 40px);
+  line-height: var(--line-height-sgnl-font-line-height-h4, 44px);
+  margin-bottom: var(--paragraph-spacing-sgnl-font-paragraph-spacing-h4, 40px);
+}
+
+h5 {
+  font-size: var(--size-sgnl-h5, 28px);
+  line-height: var(--line-height-sgnl-font-line-height-h5, 36px);
+  margin-bottom: var(--paragraph-spacing-sgnl-font-paragraph-spacing-h5, 28px);
+}
+
+h6 {
+  /* For h6, we can use the subtitle sizing as a fallback */
+  font-size: var(--size-sgnl-subtitle, 20px);
+  line-height: var(--line-height-sgnl-font-line-height-subtitle, 24px);
+  margin-bottom: var(--paragraph-spacing-sgnl-font-paragraph-spacing-subtitle, 20px);
+}
+
+/* Paragraphs */
+p {
+  margin-bottom: var(--paragraph-spacing-sgnl-font-paragraph-spacing-paragraph-m, 16px);
+}
+
+/* Links */
+a {
+  text-decoration: underline;
+  color: inherit;
+}
+
+/* Blockquotes */
+blockquote {
+  margin: var(--paragraph-spacing-sgnl-font-paragraph-spacing-paragraph-m, 16px) 0;
+  padding-left: 1em;
+  border-left: 4px solid #ccc;
+  font-style: italic;
+}
+
+/* Lists */
+ul,
+ol {
+  margin-bottom: var(--paragraph-spacing-sgnl-font-paragraph-spacing-paragraph-m, 16px);
+  padding-left: 1.5em;
+}
+
+/* Definition Lists */
+dl {
+  margin-bottom: var(--paragraph-spacing-sgnl-font-paragraph-spacing-paragraph-m, 16px);
+}
+
+dt {
+  font-weight: var(--weight-default-sgnl-font-weight-semibold, 600);
+  margin-bottom: 4px;
+}
+
+dd {
+  margin-bottom: var(--paragraph-spacing-sgnl-font-paragraph-spacing-paragraph-m, 16px);
+  margin-left: 1em;
+}
+
+/* Code (Inline) */
+code {
+  font-family: var(--family-code-text, 'IBM Plex Mono'), monospace;
+  font-size: var(--size-sgnl-code, 14px);
+  line-height: var(--line-height-sgnl-font-line-height-code, 20px);
+  background-color: #f4f4f4;
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+/* Preformatted Text */
+pre {
+  font-family: var(--family-code-text, 'IBM Plex Mono'), monospace;
+  font-size: var(--size-sgnl-code, 14px);
+  line-height: var(--line-height-sgnl-font-line-height-code, 20px);
+  background-color: #f4f4f4;
+  padding: 10px;
+  border-radius: 3px;
+  overflow-x: auto;
+  margin-bottom: var(--paragraph-spacing-sgnl-font-paragraph-spacing-code, 8px);
+}
+
+/* Captions & Footnotes (Optional classes) */
+.caption {
+  font-size: var(--size-sgnl-caption, 12px);
+  line-height: var(--line-height-sgnl-font-line-height-caption, 16px);
+  margin-bottom: var(--paragraph-spacing-sgnl-font-paragraph-spacing-caption, 12px);
+}
+
+.footnote {
+  font-size: var(--size-sgnl-footnote, 10px);
+  line-height: var(--line-height-sgnl-font-line-height-footnote, 14px);
+  margin-bottom: var(--paragraph-spacing-sgnl-font-paragraph-spacing-footnote, 10px);
+}

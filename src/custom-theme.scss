@@ -1,0 +1,75 @@
+@use "@angular/material" as mat;
+@use "../public/static/styles/styles_theme-colors" as theme;
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap");
+html {
+  @include mat.theme(
+      (
+        color: (
+          primary: theme.$primary-palette,
+          tertiary: theme.$tertiary-palette,
+          theme-type: light,
+        ),
+        typography: var(--family-display),
+        density: 0,
+      )
+  );
+}
+
+// TABLE
+:root {
+  @include mat.table-overrides(
+      (
+        background-color: var(--defaults-primary-background-mono, #fff),
+        header-headline-size: var(--size-sgnl-paragraph-m, 16px),
+        header-headline-font: var(--family-display),
+        header-headline-color: var(--defaults-primary-text-primary, #3e4249),
+        row-item-label-text-color: var(--defaults-primary-text-primary, #3e4249),
+        row-item-label-text-size: var(--size-sgnl-paragraph-s, 14px),
+        row-item-outline-width: 1px,
+        row-item-outline-color: var(--defaults-primary-border-primary, #babcc2),
+      )
+  );
+}
+// SELECT
+:root {
+  @include mat.select-overrides(
+      (
+        panel-background-color: var(--defaults-primary-background-mono, #fff),
+        enabled-trigger-text-color: var(--defaults-secondary-text-secondary, #636873),
+        placeholder-text-color: var(--defaults-secondary-text-secondary, #636873),
+      )
+  );
+}
+
+// FORM FIELD
+:root {
+  @include mat.form-field-overrides(
+      (
+        outlined-outline-color: var(--defaults-primary-border-primary, #babcc2),
+        container-vertical-padding: 12px,
+        container-height: 20px,
+      )
+  );
+}
+// TAB GROUP
+:root {
+  @include mat.tabs-overrides(
+      (
+        active-indicator-shape: orange,
+        active-focus-label-text-color: red,
+      )
+  );
+}
+
+:host ::ng-deep .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mat-mdc-notch-piece {
+  border-color: red !important;
+}
+
+// SLIDER
+.mat-mdc-slider.show-value {
+  .mdc-slider__value-indicator {
+    transform: scale(1) !important;
+    opacity: 1 !important;
+    transition: none !important;
+  }
+}

@@ -1,0 +1,3 @@
+[submodule "projects/design-system"]
+	path = projects/design-system
+	url = ../../signaloid/Signaloid-DesignSystem.git
