@@ -1,6 +1,6 @@
 {
 	"name": "signaloid-api-demo-angular-template",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"scripts": {
 		"ng": "ng",
 		"start": "ng serve --port 3000",
@@ -24,7 +24,7 @@
 		"@angular/router": "^21.2.17",
 		"@carbon/icons": "^11.79.0",
 		"@primeng/themes": "^21.0.4",
-		"@signaloid/cloud-compute-engine-client": "^1.3.1",
+		"@signaloid/scce-sdk": "^2.2.0",
 		"@signaloid/uxdata-tools": "^1.2.0",
 		"dotenv": "^17.4.2",
 		"echarts": "^6.0.0",

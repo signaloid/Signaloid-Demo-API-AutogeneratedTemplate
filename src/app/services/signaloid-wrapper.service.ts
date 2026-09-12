@@ -1,5 +1,5 @@
 import { Injectable, Output } from '@angular/core';
-import { createClient, OutputStream, TaskDataSource } from '@signaloid/cloud-compute-engine-client';
+import { createClient, OutputStream, TaskDataSource } from '@signaloid/scce-sdk';
 import { HttpClient } from '@angular/common/http';
 import { delay, EMPTY, expand, from, map, mergeMap, tap } from 'rxjs';
 import { environment } from '@env';
