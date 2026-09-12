@@ -1,7 +1,4 @@
-# Signaloid API Demo Angular Template
-
-This Template is intended only for usage by the [signaloid-cli](https://github.com/signaloid/signaloid-cli.git).
-If you want to create a web application of your Signaloid C/C++ application follow [these instructions](https://github.com/signaloid/signaloid-cli?tab=readme-ov-file#create-and-configure-a-new-project). 
+# SignaloidApiDemoAngularTemplate
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.14.
 

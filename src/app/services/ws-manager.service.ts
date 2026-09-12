@@ -4,7 +4,7 @@ import { v4 } from 'uuid';
 import { BehaviorSubject } from 'rxjs';
 import { SignaloidWrapperService } from './signaloid-wrapper.service';
 import { SnackbarService } from 'design-system';
-import {AVAILABLE_CHANNEL_PREFIXES} from './ws-manager.models';
+import { AVAILABLE_CHANNEL_PREFIXES } from './ws-manager.models';
 
 @Injectable({
 	providedIn: 'root',
@@ -28,19 +28,27 @@ export class WsManagerService {
 	};
 
 	public addAuthorizationBearer(key: string, bearer: boolean = false) {
-    this.authorization.authorization = bearer ? `Bearer ${key}` : `${key}`;
+		this.authorization.authorization = bearer ? `Bearer ${key}` : `${key}`;
 	}
 
 	constructor(
 		private signaloidService: SignaloidWrapperService,
 		private snackbarService: SnackbarService,
-	) {}
+	) { }
+
+	private connectionPromise: Promise<void> | undefined;
 
 	public establishConnection() {
+		if (!this.connectionPromise) {
+			this.connectionPromise = this.connect();
+		}
+		return this.connectionPromise;
+	}
+
+	private connect() {
 		return new Promise<void>((resolve, reject) => {
 			this.ws = new WebSocket(`${this.wsUrl}`, this.getAuthProtocol(this.authorization.authorization));
 			this.ws.onopen = () => {
-				console.log('WebSocket connection established');
 				this.ws?.send(
 					JSON.stringify({
 						type: 'connection_init',
@@ -67,12 +75,8 @@ export class WsManagerService {
 		if (message?.type === 'connection_ack') {
 			this.connectionReady = true;
 			resolve();
-		} else {
-			if (this.listeners[message.id]) {
-				this.listeners[message.id].next(messageBody);
-			} else {
-				console.warn('No active listener', message.id);
-			}
+		} else if (this.listeners[message.id]) {
+			this.listeners[message.id].next(messageBody);
 		}
 
 		if (message.type.includes('error')) {
@@ -88,9 +92,10 @@ export class WsManagerService {
 		if (this.subscriptions[channel]) {
 			return this.subscriptions[channel];
 		}
+		await this.establishConnection();
 		if (this.ws || this.connectionReady) {
 			const userId = await this.signaloidService.getCurrentUser();
-      const userIdTrimmed = userId.split('_')[1];
+			const userIdTrimmed = userId.split('_')[1];
 			this.ws?.send(
 				JSON.stringify({
 					id: subscriptionId,
@@ -101,9 +106,8 @@ export class WsManagerService {
 			);
 			this.subscriptions[channel] = subscriptionId;
 			this.listeners[subscriptionId] = new BehaviorSubject<any>(null);
-		} else {
-			console.warn('No websocket connection');
 		}
+
 		return subscriptionId;
 	}
 
@@ -111,11 +115,10 @@ export class WsManagerService {
 		if (this.listeners[subscriptionId]) {
 			this.listeners[subscriptionId].complete();
 			delete this.listeners[subscriptionId];
-		} else {
-			console.warn(`No listener found for subscriptionId ${subscriptionId}`);
 		}
+
 		const userId = await this.signaloidService.getCurrentUser();
-    const userIdTrimmed = userId.split('_')[1];
+		const userIdTrimmed = userId.split('_')[1];
 		this.ws?.send(
 			JSON.stringify({
 				id: subscriptionId,
