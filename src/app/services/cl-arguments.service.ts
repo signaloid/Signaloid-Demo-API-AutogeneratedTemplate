@@ -6,5 +6,5 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class ClArgumentsService {
 	public arguments = new BehaviorSubject<string>('');
-	constructor() {}
+	constructor() { }
 }

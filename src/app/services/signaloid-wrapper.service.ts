@@ -1,7 +1,7 @@
-import {Injectable, Output} from '@angular/core';
-import {createClient, OutputStream} from '@signaloid/scce-sdk';
+import { Injectable, Output } from '@angular/core';
+import { createClient, OutputStream, TaskDataSource } from '@signaloid/cloud-compute-engine-client';
 import { HttpClient } from '@angular/common/http';
-import {delay, EMPTY, expand, from, map, mergeMap, tap} from 'rxjs';
+import { delay, EMPTY, expand, from, map, mergeMap, tap } from 'rxjs';
 import { environment } from '@env';
 
 @Injectable({
@@ -11,30 +11,33 @@ import { environment } from '@env';
 export class SignaloidWrapperService {
 	private readonly clientEnvironment: string;
 	private readonly api: string;
-  private client;
+	private client;
 	constructor(
 		private http: HttpClient,
 	) {
 		this.api = environment.API_URL;
 		this.clientEnvironment = environment.CLIENT_ENVIRONMENT;
 		// @ts-ignore
-		this.client = createClient({method: "apiKey", key: environment.SIGNALOID_API_KEY});
-
+		this.client = createClient({ method: "apiKey", key: environment.SIGNALOID_API_KEY });
 	}
 
 	public getBuildsFor(repoId: string) {
 		return from(this.client.repositories.getBuilds(repoId));
 	}
+
+	private currentUserPromise: Promise<string> | undefined;
+
 	public async getCurrentUser() {
-
-    try {
-      const userIdFromAuth = await this.client.users.me();
-
-        return userIdFromAuth.UserID;
-      } catch (error) {
-        console.log(error);
-        return '';
-      }
+		try {
+			if (!this.currentUserPromise) {
+				this.currentUserPromise = this.client.users.me().then((user) => user.UserID);
+			}
+			return await this.currentUserPromise;
+		} catch (error) {
+			this.currentUserPromise = undefined;
+			console.error(error);
+			return '';
+		}
 	}
 
 	public listUserRepositories() {
@@ -51,10 +54,11 @@ export class SignaloidWrapperService {
 
 	public async getRepositoryByUrl(repositoryUrl: string) {
 		const repos = await this.listUserRepositories();
-		return repos.Repositories.find((elem) => elem.RemoteURL === repositoryUrl);
+		const normalize = (url: string) => url.replace(/\.git$/, '');
+		return repos.Repositories.find((elem) => normalize(elem.RemoteURL) === normalize(repositoryUrl));
 	}
 
-	private async getDataSourceForDemos() {
+	private async getDataSourceForDemos(): Promise<TaskDataSource> {
 		const userId = await this.getCurrentUser();
 		return {
 			Location: 'sd0',
@@ -63,12 +67,16 @@ export class SignaloidWrapperService {
 		};
 	}
 
-  public buildRepository(repositoryId: string, coreId?: string) {
-    const payload = {
-      CoreID: coreId,
-    };
-    return from(this.client.builds.createFromRepository(repositoryId, payload));
-  }
+	public uploadFile(path: string, file: File) {
+		return this.client.files.upload(path, file);
+	}
+
+	public buildRepository(repositoryId: string, coreId?: string) {
+		const payload = {
+			CoreID: coreId,
+		};
+		return from(this.client.builds.createFromRepository(repositoryId, payload));
+	}
 
 	public subscribeToBuildStatus(buildId: string) {
 		const request = from(this.getAuthHeader()).pipe(
@@ -92,35 +100,36 @@ export class SignaloidWrapperService {
 	}
 
 	public async getAuthHeader() {
-			return {headers: {
-          Authorization: `${environment.SIGNALOID_API_KEY}`,
-        },};
-		}
-
+		return {
+			headers: {
+				Authorization: `${environment.SIGNALOID_API_KEY}`,
+			},
+		};
+	}
 
 	public startTask(buildId: string, args: string) {
-    return from(this.getDataSourceForDemos()).pipe(
-      mergeMap((dataSource) => {
-        const executionRequest = {
-          Arguments: `${args.trim()}`,
-          DataSources: [dataSource],
-        };
-        return from(this.client.tasks.createTask(buildId, executionRequest));
-      }));
+		return from(this.getDataSourceForDemos()).pipe(
+			mergeMap((dataSource: TaskDataSource) => {
+				const executionRequest = {
+					Arguments: `${args.trim()}`,
+					DataSources: [dataSource],
+				};
+				return from(this.client.tasks.createTask(buildId, executionRequest));
+			}));
 	}
 
 	public getTaskOutputs(taskId: string) {
-      return from(this.client.tasks.getOutput(taskId, "Stdout" as OutputStream)).pipe(
-        map(res=> {
-          try {
-            return JSON.parse(JSON.stringify(res));
-          }
-          catch (e) {
-            throw new Error("Could not parse task output");
-          }
+		return from(this.client.tasks.getOutput(taskId, "Stdout" as OutputStream)).pipe(
+			map(res => {
+				try {
+					return JSON.parse(JSON.stringify(res));
+				}
+				catch (e) {
+					throw new Error("Could not parse task output");
+				}
 
-        })
-      );
+			})
+		);
 	}
 
 	public subscribeToTaskStatus(taskId: string) {
@@ -142,6 +151,7 @@ export class SignaloidWrapperService {
 			}),
 		);
 	}
+
 	public listFiles() {
 		return this.http.get<{ items: string[]; count: number }>(`${this.api}/files`);
 	}
