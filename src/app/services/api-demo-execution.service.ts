@@ -7,7 +7,7 @@ import { LoaderStep } from 'design-system';
 import { SignaloidWrapperService } from './signaloid-wrapper.service';
 import { WsManagerService } from './ws-manager.service';
 import { AVAILABLE_CHANNEL_PREFIXES } from './ws-manager.models';
-import { BuildDetails } from '@signaloid/cloud-compute-engine-client';
+import { BuildDetails } from '@signaloid/scce-sdk';
 
 @Injectable({
 	providedIn: 'root',

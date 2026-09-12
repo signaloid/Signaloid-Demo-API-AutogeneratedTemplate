@@ -119,6 +119,7 @@ export class DemoComponent implements OnInit, OnDestroy {
 				}),
 			)
 			.subscribe((res: any) => {
+				res = JSON.parse(res);
 				if (res?.plots) {
 					this.plots = res.plots;
 					this.state$.next(DemoStates.IDLE);
